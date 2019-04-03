@@ -1,0 +1,38 @@
+{
+  "name": "truffle-sca2t",
+  "version": "0.1.0",
+  "main": "index.js",
+  "license": "MIT",
+  "author": [
+    "tagomaru"
+  ],
+  "devDependencies": {
+    "coveralls": "^3.0.3",
+    "eslint": "^5.16.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "husky": "^1.3.1",
+    "lerna": "^3.4.3",
+    "mocha": "^6.0.2",
+    "nyc": "^13.3.0",
+    "sinon": "^7.3.1"
+  },
+  "scripts": {
+    "precommit": "lerna run lint"
+  },
+  "dependencies": {},
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org/"
+  },
+  "keywords": [
+    "solidity",
+    "Ethereum",
+    "audit",
+    "security",
+    "blockchain",
+    "smartcontract"
+  ]
+}

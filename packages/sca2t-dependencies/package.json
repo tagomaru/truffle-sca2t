@@ -1,0 +1,31 @@
+{
+  "name": "sca2t-dependencies",
+  "version": "0.1.0",
+  "author": "tagomaru",
+  "license": "MIT",
+  "main": "index.js",
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org/"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "fix": "eslint . --fix",
+    "pretest": "npm run lint",
+    "test": "nyc mocha --reporter spec --recursive",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "dependencies": {
+    "jquery": "3.3.1",
+    "jsplumb": "2.8.0",
+    "solidity-parser-antlr": "^0.4.2"
+  },
+  "devDependencies": {
+  },
+  "keywords": [
+    "solidity",
+    "Ethereum",
+    "audit",
+    "blockchain",
+    "smartcontract"
+  ]
+}

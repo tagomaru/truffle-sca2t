@@ -1,0 +1,21 @@
+{
+  "name": "sca2t-eventgen",
+  "version": "0.1.0",
+  "author": "tagomaru",
+  "license": "MIT",
+  "main": "index.js",
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org/"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "fix": "eslint . --fix",
+    "pretest": "npm run lint",
+    "test": "nyc mocha --reporter spec --recursive",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "dependencies": {
+    "antlr4": "^4.7.2",
+    "node-console-input": "^1.1.1"
+  }
+}

@@ -1,0 +1,6 @@
+{
+    "commands": {
+        "dependencies": "packages/sca2t-dependencies/index.js",
+        "eventgen": "packages/sca2t-eventgen/index.js"
+    }
+}
