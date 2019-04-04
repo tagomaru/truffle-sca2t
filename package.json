@@ -24,9 +24,6 @@
     "precommit": "lerna run lint"
   },
   "dependencies": {},
-  "publishConfig": {
-    "registry": "http://registry.npmjs.org/"
-  },
   "keywords": [
     "solidity",
     "Ethereum",
