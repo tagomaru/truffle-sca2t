@@ -19,8 +19,6 @@
     "jsplumb": "2.8.0",
     "solidity-parser-antlr": "^0.4.2"
   },
-  "devDependencies": {
-  },
   "keywords": [
     "solidity",
     "Ethereum",
