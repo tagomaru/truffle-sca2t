@@ -1,6 +1,7 @@
 {
     "commands": {
         "dependencies": "commands/dependencies.js",
-        "eventgen": "commands/eventgen.js"
+        "eventgen": "commands/eventgen.js",
+        "mythx": "commands/mythx.js"
     }
 }

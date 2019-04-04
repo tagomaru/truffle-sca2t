@@ -1,0 +1,28 @@
+{
+  "name": "truffle-sca2t-mythx",
+  "version": "0.1.0",
+  "author": "tagomaru",
+  "license": "MIT",
+  "main": "index.js",
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org/"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "fix": "eslint . --fix",
+    "pretest": "npm run lint",
+    "test": "nyc mocha --reporter spec --recursive",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "dependencies": {
+  },
+  "keywords": [
+    "solidity",
+    "Ethereum",
+    "audit",
+    "security",
+    "blockchain",
+    "smartcontract",
+    "truffle"
+  ]
+}

@@ -18,7 +18,8 @@
   },
   "dependencies": {
     "truffle-sca2t-dependencies": "^0.1.0",
-    "truffle-sca2t-eventgen": "^0.1.0"
+    "truffle-sca2t-eventgen": "^0.1.0",
+    "truffle-sca2t-mythx": "^0.1.0"
   },
   "keywords": [
     "solidity",
