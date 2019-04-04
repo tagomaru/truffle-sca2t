@@ -1,0 +1,32 @@
+{
+  "name": "truffle-sca2t",
+  "version": "0.1.0",
+  "author": "tagomaru",
+  "homepage": "https://github.com/tagomaru/truffle-sca2t",
+  "license": "MIT",
+  "main": "index.js",
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org/"
+  },
+  "repository": "https://github.com/tagomaru/truffle-sca2t/tree/master/packages/truffle-sca2t",
+  "bugs": {
+    "url": "https://github.com/tagomaru/truffle-sca2t/issues"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "truffle-sca2t-dependencies": "^0.1.0",
+    "truffle-sca2t-eventgen": "^0.1.0"
+  },
+  "keywords": [
+    "solidity",
+    "Ethereum",
+    "audit",
+    "security",
+    "blockchain",
+    "smartcontract",
+    "truffle"
+  ]
+}

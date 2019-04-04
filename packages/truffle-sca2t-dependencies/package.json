@@ -1,5 +1,5 @@
 {
-  "name": "sca2t-dependencies",
+  "name": "truffle-sca2t-dependencies",
   "version": "0.1.0",
   "author": "tagomaru",
   "license": "MIT",
@@ -23,7 +23,9 @@
     "solidity",
     "Ethereum",
     "audit",
+    "security",
     "blockchain",
-    "smartcontract"
+    "smartcontract",
+    "truffle"
   ]
 }

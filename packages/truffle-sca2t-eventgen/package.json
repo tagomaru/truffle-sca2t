@@ -1,5 +1,5 @@
 {
-  "name": "sca2t-eventgen",
+  "name": "truffle-sca2t-eventgen",
   "version": "0.1.0",
   "author": "tagomaru",
   "license": "MIT",
@@ -17,5 +17,14 @@
   "dependencies": {
     "antlr4": "^4.7.2",
     "node-console-input": "^1.1.1"
-  }
+  },
+  "keywords": [
+    "solidity",
+    "Ethereum",
+    "audit",
+    "security",
+    "blockchain",
+    "smartcontract",
+    "truffle"
+  ]
 }
