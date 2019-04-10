@@ -10,11 +10,10 @@
   "scripts": {
     "lint": "eslint .",
     "fix": "eslint . --fix",
-    "pretest": "npm run lint",
+    "pretest": "yarn run lint",
     "test": "nyc mocha --reporter spec --recursive",
+    "security": "mocha ./security_test ",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
-  },
-  "dependencies": {
   },
   "keywords": [
     "solidity",
@@ -24,5 +23,17 @@
     "blockchain",
     "smartcontract",
     "truffle"
-  ]
+  ],
+  "devDependencies": {
+    "mocha": "^6.0.2",
+    "mocha-simple-html-reporter": "^1.1.0",
+    "nyc": "^13.3.0"
+  },
+  "dependencies": {
+    "armlet": "^2.3.0",
+    "ejs": "^2.6.1",
+    "truffle-compile": "^4.0.10",
+    "truffle-config": "^1.1.7",
+    "truffle-resolver": "^5.0.10"
+  }
 }
