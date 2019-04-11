@@ -2,24 +2,6 @@ const assert = require('assert')
 const Runner = require('truffle-sca2t-mythx').Runner
 const Report = require('truffle-sca2t-mythx').Report
 
-/*
- * Setting: Armlet
- * You can change for you CI
- * Refer to https://github.com/ConsenSys/armlet for the detail
- */
-const armletOptions = {
-  initialDelay: 45 * 1000,  // 45 seconds
-  timeout: 5 * 60 * 1000,    // 300 seconds
-  noCacheLookup: false
-}
-
-/*
- * Setting: Report 
- * You can change for your CI
- */
-// if you want skip some SWCs, set the SWCs like ['SWC-103']
-const skippedSWCs = []
-
 describe('<%- solFileName %>', () => {
   let runner;
   let compiledResults;
@@ -42,7 +24,7 @@ describe('<%- solFileName %>', () => {
     await runner.login()
 
     // Analyze
-    analyzedResult = await runner.doAnalyzes(dataArrForAPI, armletOptions)
+    analyzedResult = await runner.doAnalyzes(dataArrForAPI)
   })
 
 <% contractTemplates.forEach(contract => { %>

@@ -7,8 +7,8 @@ const Resolver = require('truffle-resolver')
 const Config = require('truffle-config')
 
 const Runner = class {
-  constructor (contractFile) {
-    this.config = new Config()
+  constructor (contractFile, config = new Config()) {
+    this.config = config
     if (!this.config.resolver) {
       this.config.resolver = new Resolver(this.config)
     }
@@ -32,6 +32,9 @@ const Runner = class {
       })
 
     const results = await this.compile()
+      .catch(e => {
+        throw e
+      })
     return results
   }
 
@@ -42,18 +45,28 @@ const Runner = class {
           if (err) {
             reject(err)
           } else {
+            Object.keys(compiledOutput).forEach(contract => {
+              // if bytecode is not set, skip.
+              // this contract can be interaface or have some problem in source code.
+              if (compiledOutput[contract].bytecode === '0x') {
+                this.config.logger.log(`bytecode of '${contract}' is '0x'. skipping...`.red)
+
+                // delete the output from compiledOutput
+                delete compiledOutput[contract]
+              }
+            })
             resolve({ compiledOutput, files, compilerInfo })
           }
         })
       })
     }
 
-    try {
-      const results = await truffleCompileWrapper()
-      return results
-    } catch (e) {
-      throw e
-    }
+    const results = await truffleCompileWrapper()
+      .catch(e => {
+        throw e
+      })
+
+    return results
   }
 
   async generateDataForAPI (compiledResults) {
@@ -101,8 +114,7 @@ const Runner = class {
     await this.client.login()
   }
 
-  async doAnalyzes (dataArr, armletOptions) {
-    this.armletOptions = armletOptions
+  async doAnalyzes (dataArr) {
     let promises = []
     for (let dataID = 0; dataID < dataArr.length; dataID++) {
       promises.push(this.analyze(dataID, dataArr[dataID]))
@@ -127,15 +139,31 @@ const Runner = class {
 
   async analyze (dataID, data) {
     return new Promise(async (resolve, reject) => {
+      let armletOptions
+      try {
+        // load armlet option from config file.
+        armletOptions = require(path.join(this.config.working_directory, 'sca2t-config.js')).armletOptions.mythx
+
+        // if undefined, throw err
+        if (!armletOptions) throw new Error('amrletOptions is not defined.')
+      } catch (err) {
+        // set default value
+        armletOptions = {
+          initialDelay: 45 * 1000, // 45 seconds
+          timeout: 5 * 60 * 1000, // 300 seconds
+          noCacheLookup: false
+        }
+      }
+
       let obj = {}
       try {
         let results = await this.client.analyzeWithStatus(
           {
             data,
             clientToolName: 'truffle-sca2t',
-            noCacheLookup: this.armletOptions.noCacheLookup,
-            initialDelay: this.armletOptions.initialDelay,
-            timeout: this.armletOptions.timeout
+            noCacheLookup: armletOptions.noCacheLookup,
+            initialDelay: armletOptions.initialDelay,
+            timeout: armletOptions.timeout
           }
         )
 

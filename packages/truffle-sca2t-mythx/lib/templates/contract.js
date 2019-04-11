@@ -44,12 +44,18 @@ UUID: ${analyzedResult[index].status.uuid}`)
     it('should be no issue', async () => {
       assert(!analyzedResult[index].error, 'API returned Error')
       assert(analyzedResult[index].issues[0].issues, `issues is not set.`)
-      const reports = report.getJsonReport(analyzedResult[index].issues[0], skippedSWCs)
+      const jsonIssues = report.getJsonIssues(analyzedResult[index].issues[0])
+      assert.equal(jsonIssues.length, 0, `
 
-      assert.equal(reports.length, 0, `
+=========== Vulnerability Report ================
+${jsonIssues.length} vulnerabilities were found.
+
 Vulnerabilities:
-${JSON.stringify(reports, null, 2)}
+${report.getReport(jsonIssues)}
+
 UUID: ${analyzedResult[index].status.uuid}
-      `)
+=================================================
+
+`)
     })
   })

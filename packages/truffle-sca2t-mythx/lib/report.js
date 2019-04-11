@@ -1,6 +1,11 @@
+const path = require('path')
+const Config = require('truffle-config')
+const json2yaml = require('json2yaml')
+
 const Report = class {
-  constructor (data) {
+  constructor (data, config = new Config()) {
     this.data = data
+    this.config = config
   }
 
   getMythXLogs (issues) {
@@ -16,15 +21,26 @@ const Report = class {
     return logs
   }
 
-  getJsonReport (issues, skippedSWCs = []) {
+  getJsonIssues (issues) {
     if (!this.issues) {
       this.issues = issues
     }
-    this.skippedSWCs = skippedSWCs
+
+    let skippedSWCs
+    try {
+      // load skippedSWCs from config file.
+      skippedSWCs = require(path.join(this.config.working_directory, 'sca2t-config.js')).mythx.skippedSWCs
+
+      // if undefined, throw err
+      if (!skippedSWCs) throw new Error('skippedSWCs is not defined.')
+    } catch (err) {
+      // set default value
+      skippedSWCs = []
+    }
 
     const reports = []
     this.issues.issues.forEach(issue => {
-      if (this.skippedSWCs.indexOf(issue.swcID) >= 0) {
+      if (skippedSWCs.indexOf(issue.swcID) >= 0) {
         return
       }
       const report = {
@@ -65,6 +81,27 @@ const Report = class {
       reports.push(report)
     })
     return reports
+  }
+
+  getReport (jsonIssues) {
+    const reportFormat = require(path.join(this.config.working_directory, 'sca2t-config.js')).mythx.reportFormat
+    let issues = []
+    jsonIssues.forEach(vulnerability => {
+      const title = `${vulnerability.description.head} (${vulnerability.severity})`
+      vulnerability.description = vulnerability.description.tail
+      delete vulnerability.severity
+      const vulObj = { Title: title, Detail: vulnerability }
+      issues.push(vulObj)
+    })
+
+    let report
+    if (reportFormat === 'yaml') {
+      report = json2yaml.stringify(issues)
+    } else {
+      // if not yaml, it is always 'json' format
+      report = JSON.stringify(issues, null, 2)
+    }
+    return report.replace(/\\"/g, '\'').replace(/\\n/g, ' ')
   }
 
   convertErrToStr (err) {

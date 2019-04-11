@@ -32,6 +32,7 @@
   "dependencies": {
     "armlet": "^2.3.0",
     "ejs": "^2.6.1",
+    "json2yaml": "^1.1.0",
     "truffle-compile": "^4.0.10",
     "truffle-config": "^1.1.7",
     "truffle-resolver": "^5.0.10"
