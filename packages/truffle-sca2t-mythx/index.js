@@ -1,14 +1,15 @@
-const Resolver = require('truffle-resolver')
 const Runner = require('./lib/runner').Runner
 const Report = require('./lib/report').Report
 const Generator = require('./lib/generator').Generator
 
 module.exports = async (config) => {
+  // if help option is set, show help and return
   if (config.help) {
     printHelpMessage(config)
     return
   }
 
+  // retrieve target files from arguments.
   const targetFiles = config._.length > 1 ? config._.slice(1, config._.length) : null
 
   if (!targetFiles) {
@@ -18,15 +19,11 @@ module.exports = async (config) => {
     return
   }
 
-  if (!config.resolver) {
-    config.resolver = new Resolver(config)
-  }
-
   const generator = new Generator(targetFiles, config)
   await generator.generate()
-  config.logger.log('successfully done.'.green)
-  config.logger.log('please execute "npm run security"'.green)
-  config.logger.log('if you want html test report, "npm run security-html"'.green)
+  config.logger.log('\nsuccessfully done.\n'.green)
+  config.logger.log('please execute', '"npm run test:security"'.cyan, 'for your test')
+  config.logger.log('if you want html test report,', '"npm run test:security:html"'.cyan)
 }
 
 const printHelpMessage = (config) => {

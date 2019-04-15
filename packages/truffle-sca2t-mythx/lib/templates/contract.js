@@ -23,7 +23,9 @@ Retrive the result with the above UUID later or try again.
         } else {
           done(new Error(`
 MythX Error: ${errStr}
-          `))
+Data which was sent to MythX:
+${JSON.stringify(dataArrForAPI[index], null, 2)}
+`))
         }
       } else {
         done();
@@ -36,8 +38,12 @@ MythX Error: ${errStr}
       const logs = report.getMythXLogs(analyzedResult[index].issues[0])
 
       assert.equal(logs.length, 0, `
-Mytx Logs:
-${JSON.stringify(logs, null, 2)} 
+Mythx Logs:
+${JSON.stringify(logs, null, 2)}
+
+Data which was sent to MythX:
+${JSON.stringify(dataArrForAPI[index], null, 2)}
+
 UUID: ${analyzedResult[index].status.uuid}`)
     })
 

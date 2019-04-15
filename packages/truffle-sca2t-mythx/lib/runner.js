@@ -7,8 +7,15 @@ const Resolver = require('truffle-resolver')
 const Config = require('truffle-config')
 
 const Runner = class {
-  constructor (contractFile, config = new Config()) {
-    this.config = config
+  constructor (contractFile, config) {
+    if (!contractFile) {
+      throw new Error('no contract file is set')
+    }
+    if (config) {
+      this.config = config
+    } else {
+      this.config = Config.detect()
+    }
     if (!this.config.resolver) {
       this.config.resolver = new Resolver(this.config)
     }
@@ -18,13 +25,13 @@ const Runner = class {
   async doCompile () {
     const config = this.config
     this.allSources = {}
+
     // Load compiler
     const supplier = new CompilerSupplier(config.compilers.solc)
     await supplier
       .load()
       .then(async solc => {
         const resolved = await Profiler.resolveAllSources(config.resolver, [this.targetFile], solc)
-
         const resolvedPaths = Object.keys(resolved)
         resolvedPaths.forEach(file => {
           this.allSources[file] = resolved[file].body
@@ -133,7 +140,6 @@ const Runner = class {
       .catch(e => {
         throw e
       })
-
     return results
   }
 
@@ -177,10 +183,12 @@ const Runner = class {
         let errStr
         if (typeof err === 'string') {
           // It is assumed that err should be string here.
-          errStr = `${err}`
+          errStr = err
         } else if (typeof err.message === 'string') {
           // If err is Error, get message property.
           errStr = err.message
+        } else {
+          errStr = `${err}`
         }
         obj[dataID] = { error: errStr }
         resolve(obj)

@@ -3,9 +3,13 @@ const Config = require('truffle-config')
 const json2yaml = require('json2yaml')
 
 const Report = class {
-  constructor (data, config = new Config()) {
+  constructor (data, config) {
+    if (config) {
+      this.config = config
+    } else {
+      this.config = Config.detect()
+    }
     this.data = data
-    this.config = config
   }
 
   getMythXLogs (issues) {

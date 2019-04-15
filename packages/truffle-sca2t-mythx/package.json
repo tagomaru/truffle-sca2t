@@ -11,7 +11,7 @@
     "lint": "eslint .",
     "fix": "eslint . --fix",
     "pretest": "yarn run lint",
-    "test": "nyc mocha --reporter spec --recursive",
+    "test": "nyc mocha --reporter spec --recursive --timeout=5000",
     "security": "mocha ./security_test ",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
