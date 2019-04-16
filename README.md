@@ -95,13 +95,13 @@ Also this generates list of information of such as contract, function, etc.
 This supports dependencies of inheritance, using declaration, and user defined type.
 This searches package of EthPM and NPM for contracts
 
-```console
+```
 truffle run dependencies fileA.sol
 ```
 
 or
 
-```console
+```
 truffle run dependencies fileA.sol fileB.sol
 ```
 
@@ -113,12 +113,12 @@ The `eventgen` command inserts event decalaration and its call into all of the c
 This helps you know which contract and function is called for contracts which rely on many other contracts.
 Don't forget to backup your solidity files before doing this.
 
-```console
+```
 truffle run eventgen contracts/fileA.sol contracts/fileB.sol
 ```
 or
 
-```console
+```
 find contracts -name "*.sol" | xargs truffle run eventgen
 ```
 
