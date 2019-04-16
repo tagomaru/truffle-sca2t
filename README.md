@@ -1,6 +1,7 @@
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 # truffle-sca2t (Smart Contract Audit Assistant Tool): A set of utilities for auditing Solidity contracts.
 
-truffle-sca2t is a plugin of [Truffle framework](https://truffleframework.com/docs/truffle/overview) and an assistant tool for smart contract auditing. This provides some utilities to help your smart contract auditing and make your smart contract more secure and safe.
+truffle-sca2t is a plugin of [Truffle framework](https://truffleframework.com/docs/truffle/overview) and an assistant tool for smart contract auditing. This provides some utilities to help your smart contract auditing and make your smart contract more secure and safe. The plugin is compatible with Truffle 5.0 or higher.
 
 sca2t pronunciation is like skärt.
 
