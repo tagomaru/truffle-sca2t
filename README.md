@@ -23,7 +23,7 @@ module.exports = {
 
 # Command List
 ## 1. mythx
-The `mythx` command generate test code files for [MythX](https://mythx.io/). The test files work as MythX client and report vulnerabilies, and some errors, and MythX Log. You can integrate the test code files in your CI because the test code files never depend on CI product such as Circle CI, Travis CI, Jenkins, and so on.
+The `mythx` command generate test code files for [MythX](https://mythx.io/). The test files work as MythX client and report vulnerabilies, and some errors, and MythX Log. You can integrate the test code files in your CI because the test code files never depend on CI products such as Circle CI, Travis CI, Jenkins, and so on.
 
 ### 1-1. Usage
 #### 1-1-1. MythX Account
@@ -44,7 +44,7 @@ or multiple selection
 $ truffle run mythx fileA.sol fileB.sol
 ```
 
-You can set multiple files, however this command automatically search dependencies. For example,
+You can set multiple files, however this command automatically searches dependencies. For example,
 
 A.sol
 ```solidity
@@ -65,9 +65,9 @@ contract C {
 }
 ```
 
-The command `truffle run mythx A.sol` generates test code file 'test_A.sol_.js' and the file include tests for `A` and `B`. The test for `A` also includes `C`. The test code file sends AST and source code for not only `A` but also `C` to MythX API. You can see the sent data [here](https://github.com/tagomaru/static-for-github/blob/master/truffle-sca2t/truffle-sca2t-mythx/data1.json). 
+The command `truffle run mythx A.sol` generates test code file 'test_A.sol_.js' and the file include tests for `A` and `B`. The test for `A` also includes the test for `C`. The test code file sends AST and source code for not only `A` but also `C` to MythX API. You can see the sent data [here](https://github.com/tagomaru/static-for-github/blob/master/truffle-sca2t/truffle-sca2t-mythx/data1.json). 
 
-That is why, you do not need to set dependencies.
+That is why, you do not need to set files which the main contract file depends on.
 
 #### 1-1-3. Run The Test Code Files
 If test code files are successfully generated, you can run mocha test.
@@ -76,7 +76,7 @@ If test code files are successfully generated, you can run mocha test.
 $ npm run test:security
 ```
 
-If you want html report (recommended), execute the below command.
+If you want a beautiful html report (recommended), execute the below command.
 
 ```
 $ npm run test:security:html
