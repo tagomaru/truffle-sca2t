@@ -1,6 +1,6 @@
 # truffle-sca2t (Smart Contract Audit Assistant Tool): A set of utilities for auditing Solidity contracts.
 
-truffle-sca2t is a plugin of [Truffle framework](https://truffleframework.com/docs/truffle/overview). assistant tool for smart contract audit. This provides some utilities to help your smart contract auditing and make your smart contract more secure.
+truffle-sca2t is a plugin of [Truffle framework](https://truffleframework.com/docs/truffle/overview) and an assistant tool for smart contract auditing. This provides some utilities to help your smart contract auditing and make your smart contract more secure and safe.
 
 sca2t pronunciation is like skärt.
 
@@ -8,7 +8,7 @@ sca2t pronunciation is like skärt.
 
 Install it via npm:
 
-```console
+```
 npm install -g truffle-sca2t
 ```
 
@@ -22,7 +22,7 @@ module.exports = {
 
 # Command List
 ## 1. mythx
-The `mythx` command generate test code files for [MythX](https://mythx.io/). The test files work as MythX client and report vulnerabilies, and some errors, and MythX Log. You can use the test code files for your CI.
+The `mythx` command generate test code files for [MythX](https://mythx.io/). The test files work as MythX client and report vulnerabilies, and some errors, and MythX Log. You can integrate the test code files in your CI because the test code files never depend on CI product such as Circle CI, Travis CI, Jenkins, and so on.
 
 ### 1-1. Usage
 #### 1-1-1. MythX Account
@@ -75,13 +75,15 @@ If test code files are successfully generated, you can run mocha test.
 npm run test:security
 ```
 
-if you want html report (recommended), execute the below command.
+If you want html report (recommended), execute the below command.
 
 ```
 npm run test:security:html
 ```
 
 `security-report.html` is generated on your project root. The report file of the above `A` is like below. 
+
+![sample-report](https://github.com/tagomaru/static-for-github/blob/master/truffle-sca2t/truffle-sca2t-mythx/sample-report1.jpg)
 
 And you can see the report [here](http://htmlpreview.github.io/?https://github.com/tagomaru/static-for-github/blob/master/truffle-sca2t/truffle-sca2t-mythx/security-report1.html).
 
