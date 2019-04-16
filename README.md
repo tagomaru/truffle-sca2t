@@ -9,7 +9,7 @@ sca2t pronunciation is like skärt.
 Install it via npm:
 
 ```
-npm install -g truffle-sca2t
+$ npm install -g truffle-sca2t
 ```
 
 # Configuration
@@ -36,11 +36,11 @@ export MYTHX_PASSWORD='Put your password in here!'
 
 #### 1-1-2. Generate Test Code Files
 ```
-truffle run mythx fileA.sol
+$ truffle run mythx fileA.sol
 ```
 or multiple selection
 ```
-truffle run mythx fileA.sol fileB.sol
+$ truffle run mythx fileA.sol fileB.sol
 ```
 
 You can set multiple files, however this command automatically search dependencies. For example,
@@ -72,16 +72,16 @@ That is why, you do not need to set dependencies.
 If test code files are successfully generated, you can run mocha test.
 
 ```
-npm run test:security
+$ npm run test:security
 ```
 
 If you want html report (recommended), execute the below command.
 
 ```
-npm run test:security:html
+$ npm run test:security:html
 ```
 
-`security-report.html` is generated on your project root. The report file of the above `A` is like below. 
+`security-report.html` is generated on your project root. The report file of the above `A` is like below. As you can see, the file reports the vulnerability of `C`.
 
 <img src="https://github.com/tagomaru/static-for-github/blob/master/truffle-sca2t/truffle-sca2t-mythx/sample-report1.jpg">
 
@@ -99,13 +99,13 @@ This supports dependencies of inheritance, using declaration, and user defined t
 This searches package of EthPM and NPM for contracts
 
 ```
-truffle run dependencies fileA.sol
+$ truffle run dependencies fileA.sol
 ```
 
 or
 
 ```
-truffle run dependencies fileA.sol fileB.sol
+$ truffle run dependencies fileA.sol fileB.sol
 ```
 
 <img src="https://raw.githubusercontent.com/wiki/tagomaru/sca2t/images/dependencies.png" height="236">
@@ -117,12 +117,12 @@ This helps you know which contract and function is called for contracts which re
 Don't forget to backup your solidity files before doing this.
 
 ```
-truffle run eventgen contracts/fileA.sol contracts/fileB.sol
+$ truffle run eventgen contracts/fileA.sol contracts/fileB.sol
 ```
 or
 
 ```
-find contracts -name "*.sol" | xargs truffle run eventgen
+$ find contracts -name "*.sol" | xargs truffle run eventgen
 ```
 
 # License
