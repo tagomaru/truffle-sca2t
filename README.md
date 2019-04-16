@@ -21,11 +21,11 @@ module.exports = {
 ```
 
 # Command List
-## mythx
+## 1. mythx
 The `mythx` command generate test code files for [MythX](https://mythx.io/). The test files work as MythX client and report vulnerabilies, and some errors, and MythX Log. You can use the test code files for your CI.
 
-### Usage
-#### MythX Account
+### 1-1. Usage
+#### 1-1-1. MythX Account
 You can set up an account on the [MythX website](https://mythx.io) to get full access.
 
 After setting up an account, set the following enviromment variables to your ETH address and password (add this to your `.bashrc` or `.bash_profile` for added convenience):
@@ -34,7 +34,7 @@ export MYTHX_ETH_ADDRESS=0x1234567891235678900000000000000000000000
 export MYTHX_PASSWORD='Put your password in here!'
 ```
 
-#### Generate Test Code Files
+#### 1-1-2. Generate Test Code Files
 ```
 truffle run mythx fileA.sol
 ```
@@ -68,6 +68,7 @@ The command `truffle run mythx A.sol` generates test code file 'test_A.sol_.js' 
 
 That is why, you do not need to set dependencies.
 
+#### 1-1-3. Run The Test Code Files
 If test code files are successfully generated, you can run mocha test.
 
 ```
@@ -84,11 +85,11 @@ npm run test:security:html
 
 And you can see the report [here](http://htmlpreview.github.io/?https://github.com/tagomaru/static-for-github/blob/master/truffle-sca2t/truffle-sca2t-mythx/security-report1.html).
 
-#### Configuration For Your CI
+#### 1-1-4. Configuration For Your CI
 This command automatically generates `sca2t-config.js` file on your project root for your setting. You can set report format, skipped SWCs, and so on.
 
 
-## dependencies
+## 2. dependencies
 
 The `dependencies` command outputs a draggable report to visualize dependencies among contracts.
 Also this generates list of information of such as contract, function, etc.
@@ -107,7 +108,7 @@ truffle run dependencies fileA.sol fileB.sol
 
 <img src="https://raw.githubusercontent.com/wiki/tagomaru/sca2t/images/dependencies.png" height="236">
 
-## eventgen
+## 3. eventgen
 
 The `eventgen` command inserts event decalaration and its call into all of the contracts and functions except view functions.
 This helps you know which contract and function is called for contracts which rely on many other contracts.
