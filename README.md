@@ -24,60 +24,62 @@ module.exports = {
 ## mythx
 The `mythx` command generate test code files for [MythX](https://mythx.io/). The test files work as MythX client and report vulnerabilies, and some errors, and MythX Log. You can use the test code files for your CI.
 
+### Usage
 ```console
-truffle run mythx A.sol
+truffle run mythx fileA.sol
 ```
 
 or multiple selection
 
 ```console
-truffle run mythx A.sol B.sol
+truffle run mythx fileA.sol fileB.sol
 ```
 
-You can set multiple files, however this command automatically search dependencies.
+You can set multiple files, however this command automatically search dependencies. For example,
 
+A.sol
 ```solidity
 pragma solidity ^0.5.0;
-import "./C.sol";
+import "my-npm-pkg/contracts/C.sol";
 contract A is C {}
 contract B {}
 ```
 
+C.sol
 ```solidity
 pragma solidity ^0.5.0;
-contract C {}
-```
-
-The command `truffle run mythx A.sol` generates test code file 'test_A.sol_.js' and the file include tests for `A` and `B`. The test `A` includes `C`. The test code file sends AST and source code for not only `A` but also `C`.
-
-```json
-{
-  "data": {
-    "contractName": "A",
-    "bytecode": "0x6080...",
-    "sourceMap": "42:18:0:...",
-    "deployedBytecode": "0x6080...",
-    "deployedSourceMap": "42:18:0:...",
-    "sourceList": [
-      "/contracts/A.sol",
-      "/contracts/C.sol"
-    ],
-    "sources": {
-      "/contracts/A.sol": {
-        "source": "pragma solidity ^0.5.0;\nimport \"./C.sol\";\ncontract A is C {}\ncontract B {}",
-        "ast": {...}
-      },
-      "/contracts/C.sol": {
-        "source": "pragma solidity ^0.5.0;\ncontract C {}",
-        "ast": {...}
-      }
-    },
-    "verion": "...",
-    "analysisMode": "quick"
-  },
-  (removed)
+contract C {
+  uint public a;
+  function add(uint b) public {
+    a = a + b;
+  }
 }
 ```
+
+The command `truffle run mythx A.sol` generates test code file 'test_A.sol_.js' and the file include tests for `A` and `B`. The test for `A` also includes `C`. The test code file sends AST and source code for not only `A` but also `C` to MythX API.
+
+```json
+```
+
+That is why, you do not need to set dependencies.
+
+If test code files are successfully generated, you can run mocha test.
+
+```console
+npm run test:security
+```
+
+if you want html report (recommended), execute the below command.
+
+```console
+npm run test:security:html
+```
+
+`security-report.html` is generated on your project root. The report file of the above `A` is like below. And you can see here.
+
+### Configuration
+This command automatically generates `sca2t-config.js` file on your project root for your setting. You can set report format, skipped SWCs, and so on.
+
 
 ## dependencies
 
