@@ -35,11 +35,11 @@ export MYTHX_PASSWORD='Put your password in here!'
 ```
 
 #### Generate Test Code Files
-```console
+```
 truffle run mythx fileA.sol
 ```
 or multiple selection
-```console
+```
 truffle run mythx fileA.sol fileB.sol
 ```
 
@@ -64,7 +64,7 @@ contract C {
 }
 ```
 
-The command `truffle run mythx A.sol` generates test code file 'test_A.sol_.js' and the file include tests for `A` and `B`. The test for `A` also includes `C`. The test code file sends AST and source code for not only `A` but also `C` to MythX API.
+The command `truffle run mythx A.sol` generates test code file 'test_A.sol_.js' and the file include tests for `A` and `B`. The test for `A` also includes `C`. The test code file sends AST and source code for not only `A` but also `C` to MythX API. You can see the sent data [here](https://github.com/tagomaru/static-for-github/blob/master/truffle-sca2t/truffle-sca2t-mythx/data1.json). 
 
 That is why, you do not need to set dependencies.
 
