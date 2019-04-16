@@ -25,13 +25,21 @@ module.exports = {
 The `mythx` command generate test code files for [MythX](https://mythx.io/). The test files work as MythX client and report vulnerabilies, and some errors, and MythX Log. You can use the test code files for your CI.
 
 ### Usage
-```console
-truffle run mythx fileA.sol
+#### MythX Account
+You can set up an account on the [MythX website](https://mythx.io) to get full access.
+
+After setting up an account, set the following enviromment variables to your ETH address and password (add this to your `.bashrc` or `.bash_profile` for added convenience):
+```bash
+export MYTHX_ETH_ADDRESS=0x1234567891235678900000000000000000000000
+export MYTHX_PASSWORD='Put your password in here!'
 ```
 
+#### Generate Test Code Files
+```bash
+truffle run mythx fileA.sol
+```
 or multiple selection
-
-```console
+```bash
 truffle run mythx fileA.sol fileB.sol
 ```
 
@@ -58,26 +66,23 @@ contract C {
 
 The command `truffle run mythx A.sol` generates test code file 'test_A.sol_.js' and the file include tests for `A` and `B`. The test for `A` also includes `C`. The test code file sends AST and source code for not only `A` but also `C` to MythX API.
 
-```json
-```
-
 That is why, you do not need to set dependencies.
 
 If test code files are successfully generated, you can run mocha test.
 
-```console
+```
 npm run test:security
 ```
 
 if you want html report (recommended), execute the below command.
 
-```console
+```
 npm run test:security:html
 ```
 
 `security-report.html` is generated on your project root. The report file of the above `A` is like below. And you can see here.
 
-### Configuration
+#### Configuration For Your CI
 This command automatically generates `sca2t-config.js` file on your project root for your setting. You can set report format, skipped SWCs, and so on.
 
 

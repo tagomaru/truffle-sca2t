@@ -427,10 +427,10 @@ body {
                     <li class="passes">passes: <em>4</em></li>
                     <li class="pending">pending: <em>0</em></li>
                     <li class="failures">failures: <em>2</em></li>
-                    <li class="duration">duration: <em>1m 13.9s</em></li>
+                    <li class="duration">duration: <em>9.3s</em></li>
                 </ul>
             </div>
-            <ul id="report"><li class="suite"><h1>A.sol</h1><ul><li class="suite"><h1>A</h1><ul><li class="test pass fast"><h2>should be no error<span class="duration">0ms</span></h2><pre><code>async (done) =&#x3E; {
+            <ul id="report"><li class="suite"><h1>A.sol</h1><ul><li class="suite"><h1>A</h1><ul><li class="test pass fast"><h2>should be no error<span class="duration">1ms</span></h2><pre><code>async (done) =&#x3E; {
       if (analyzedResult[index].error) {
         let errStr = report.convertErrToStr(analyzedResult[index].error)
         if (errStr.includes(&#x27;User or default timeout reached after&#x27;) || errStr.includes(&#x27;Timeout reached after&#x27;)) {
@@ -476,38 +476,30 @@ UUID: ${analyzedResult[index].status.uuid}
 2 vulnerabilities were found.
 
 Vulnerabilities:
-[
-  {
-    &#x22;Title&#x22;: &#x22;The binary addition can overflow. (High)&#x22;,
-    &#x22;Detail&#x22;: {
-      &#x22;swcID&#x22;: &#x22;SWC-101&#x22;,
-      &#x22;swcTitle&#x22;: &#x22;Integer Overflow and Underflow&#x22;,
-      &#x22;description&#x22;: &#x22;The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.&#x22;,
-      &#x22;locations&#x22;: [
-        {
-          &#x22;file&#x22;: &#x22;my-npm-pkg/contracts/C.sol&#x22;,
-          &#x22;source (94:99)&#x22;: &#x22;a + b&#x22;
-        }
-      ]
-    }
-  },
-  {
-    &#x22;Title&#x22;: &#x22;A floating pragma is set. (Medium)&#x22;,
-    &#x22;Detail&#x22;: {
-      &#x22;swcID&#x22;: &#x22;SWC-103&#x22;,
-      &#x22;swcTitle&#x22;: &#x22;Floating Pragma&#x22;,
-      &#x22;description&#x22;: &#x22;It is recommended to make a conscious choice on what version of Solidity is used for compilation. Currently any version equal or greater than &#x27;0.5.0&#x27; is allowed.&#x22;,
-      &#x22;locations&#x22;: [
-        {
-          &#x22;file&#x22;: &#x22;/mnt/c/workdir/vscode_project/truffle-sca2t-test/contracts/A.sol&#x22;,
-          &#x22;source (0:23)&#x22;: &#x22;pragma solidity ^0.5.0;&#x22;
-        }
-      ]
-    }
-  }
-]
+---
+  - 
+    Title: &#x22;The binary addition can overflow. (High)&#x22;
+    Detail: 
+      swcID: &#x22;SWC-101&#x22;
+      swcTitle: &#x22;Integer Overflow and Underflow&#x22;
+      description: &#x22;The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.&#x22;
+      locations: 
+        - 
+          file: &#x22;my-npm-pkg/contracts/C.sol&#x22;
+          source (94:99): &#x22;a + b&#x22;
+  - 
+    Title: &#x22;A floating pragma is set. (Medium)&#x22;
+    Detail: 
+      swcID: &#x22;SWC-103&#x22;
+      swcTitle: &#x22;Floating Pragma&#x22;
+      description: &#x22;It is recommended to make a conscious choice on what version of Solidity is used for compilation. Currently any version equal or greater than &#x27;0.5.0&#x27; is allowed.&#x22;
+      locations: 
+        - 
+          file: &#x22;/mnt/c/workdir/vscode_project/truffle-sca2t-test/contracts/A.sol&#x22;
+          source (0:23): &#x22;pragma solidity ^0.5.0;&#x22;
 
-UUID: 2bb6a34c-f301-4f21-ad5a-8d568a99ad76
+
+UUID: e04fe5ef-7153-4005-871d-8c46963a1de2
 =================================================
 
 
@@ -557,24 +549,20 @@ UUID: ${analyzedResult[index].status.uuid}
 1 vulnerabilities were found.
 
 Vulnerabilities:
-[
-  {
-    &#x22;Title&#x22;: &#x22;A floating pragma is set. (Medium)&#x22;,
-    &#x22;Detail&#x22;: {
-      &#x22;swcID&#x22;: &#x22;SWC-103&#x22;,
-      &#x22;swcTitle&#x22;: &#x22;Floating Pragma&#x22;,
-      &#x22;description&#x22;: &#x22;It is recommended to make a conscious choice on what version of Solidity is used for compilation. Currently any version equal or greater than &#x27;0.5.0&#x27; is allowed.&#x22;,
-      &#x22;locations&#x22;: [
-        {
-          &#x22;file&#x22;: &#x22;/mnt/c/workdir/vscode_project/truffle-sca2t-test/contracts/A.sol&#x22;,
-          &#x22;source (0:23)&#x22;: &#x22;pragma solidity ^0.5.0;&#x22;
-        }
-      ]
-    }
-  }
-]
+---
+  - 
+    Title: &#x22;A floating pragma is set. (Medium)&#x22;
+    Detail: 
+      swcID: &#x22;SWC-103&#x22;
+      swcTitle: &#x22;Floating Pragma&#x22;
+      description: &#x22;It is recommended to make a conscious choice on what version of Solidity is used for compilation. Currently any version equal or greater than &#x27;0.5.0&#x27; is allowed.&#x22;
+      locations: 
+        - 
+          file: &#x22;/mnt/c/workdir/vscode_project/truffle-sca2t-test/contracts/A.sol&#x22;
+          source (0:23): &#x22;pragma solidity ^0.5.0;&#x22;
 
-UUID: ddc66f1d-9306-4e70-8657-13ad4fa97d57
+
+UUID: 53e5108b-7505-49c8-bf87-66e4eadaab08
 =================================================
 
 
