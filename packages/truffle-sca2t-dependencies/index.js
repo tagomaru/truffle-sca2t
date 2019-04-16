@@ -18,7 +18,7 @@ module.exports = async (config) => {
 
   if (!targetFiles) {
     config.logger.error('please set solidity file'.red)
-    config.logger.error('Usage: truffle run dependencies [options] [*contract-name1* [*contract-name2*] ...]')
+    config.logger.error('Usage: truffle run dependencies [*file-name1* [*file-name2*] ...]')
     config.logger.error(' e.g.: truffle run dependencies fileA.sol fileB.sol')
     return
   }

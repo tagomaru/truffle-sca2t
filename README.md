@@ -1,12 +1,10 @@
 # truffle-sca2t (Smart Contract Audit Assistant Tool): A set of utilities for auditing Solidity contracts.
 
-#### 
-
 truffle-sca2t is a plugin of [Truffle framework](https://truffleframework.com/docs/truffle/overview). assistant tool for smart contract audit. This provides some utilities to help your smart contract auditing and make your smart contract more secure.
 
 sca2t pronunciation is like skärt.
 
-## Getting Started
+# Getting Started
 
 Install it via npm:
 
@@ -14,7 +12,7 @@ Install it via npm:
 npm install -g truffle-sca2t
 ```
 
-## Configuration
+# Configuration
 Add the following to `truffle.js` in the root directory of your Truffle project:
 ```javascript
 module.exports = {
@@ -22,8 +20,68 @@ module.exports = {
 };
 ```
 
-## Command List
-### dependencies
+# Command List
+## mythx
+The `mythx` command generate test code files for [MythX](https://mythx.io/). The test files work as MythX client and report vulnerabilies, and some errors, and MythX Log. You can use the test code files for your CI.
+
+### Usage
+```console
+truffle run mythx fileA.sol
+```
+
+or multiple selection
+
+```console
+truffle run mythx fileA.sol fileB.sol
+```
+
+You can set multiple files, however this command automatically search dependencies. For example,
+
+A.sol
+```solidity
+pragma solidity ^0.5.0;
+import "my-npm-pkg/contracts/C.sol";
+contract A is C {}
+contract B {}
+```
+
+C.sol
+```solidity
+pragma solidity ^0.5.0;
+contract C {
+  uint public a;
+  function add(uint b) public {
+    a = a + b;
+  }
+}
+```
+
+The command `truffle run mythx A.sol` generates test code file 'test_A.sol_.js' and the file include tests for `A` and `B`. The test for `A` also includes `C`. The test code file sends AST and source code for not only `A` but also `C` to MythX API.
+
+```json
+```
+
+That is why, you do not need to set dependencies.
+
+If test code files are successfully generated, you can run mocha test.
+
+```console
+npm run test:security
+```
+
+if you want html report (recommended), execute the below command.
+
+```console
+npm run test:security:html
+```
+
+`security-report.html` is generated on your project root. The report file of the above `A` is like below. And you can see here.
+
+### Configuration
+This command automatically generates `sca2t-config.js` file on your project root for your setting. You can set report format, skipped SWCs, and so on.
+
+
+## dependencies
 
 The `dependencies` command outputs a draggable report to visualize dependencies among contracts.
 Also this generates list of information of such as contract, function, etc.
@@ -43,7 +101,7 @@ truffle run dependencies fileA.sol fileB.sol
 
 <img src="https://raw.githubusercontent.com/wiki/tagomaru/sca2t/images/dependencies.png" height="236">
 
-### eventgen
+## eventgen
 
 The `eventgen` command inserts event decalaration and its call into all of the contracts and functions except view functions.
 This helps you know which contract and function is called for contracts which rely on many other contracts.
@@ -58,5 +116,5 @@ or
 find contracts -name "*.sol" | xargs truffle run eventgen
 ```
 
-## License
+# License
 MIT

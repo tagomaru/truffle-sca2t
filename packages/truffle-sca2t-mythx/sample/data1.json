@@ -1,0 +1,324 @@
+{
+  "data": {
+    "contractName": "A",
+    "bytecode": "0x608060405234801561001057600080fd5b5060db8061001f6000396000f3fe6080604052348015600f57600080fd5b5060043610604f576000357c0100000000000000000000000000000000000000000000000000000000900480630dbe671f1460545780631003e2d2146070575b600080fd5b605a609b565b6040518082815260200191505060405180910390f35b609960048036036020811015608457600080fd5b810190808035906020019092919050505060a1565b005b60005481565b80600054016000819055505056fea165627a7a723058200c370d2e3e90133a659e8288c52d7c167449c2e5966c6a08ec2c261f2fcf2cbd0029",
+    "sourceMap": "61:18:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;61:18:0;;;;;;;",
+    "deployedBytecode": "0x6080604052348015600f57600080fd5b5060043610604f576000357c0100000000000000000000000000000000000000000000000000000000900480630dbe671f1460545780631003e2d2146070575b600080fd5b605a609b565b6040518082815260200191505060405180910390f35b609960048036036020811015608457600080fd5b810190808035906020019092919050505060a1565b005b60005481565b80600054016000819055505056fea165627a7a723058200c370d2e3e90133a659e8288c52d7c167449c2e5966c6a08ec2c261f2fcf2cbd0029",
+    "deployedSourceMap": "61:18:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;61:18:0;;;;;;;;;;;;;;;;;;;;;;;;;39:13:1;;;:::i;:::-;;;;;;;;;;;;;;;;;;;56:48;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;56:48:1;;;;;;;;;;;;;;;;;:::i;:::-;;39:13;;;;:::o;56:48::-;98:1;94;;:5;90:1;:9;;;;56:48;:::o",
+    "sourceList": [
+      "/mnt/c/workdir/vscode_project/truffle-sca2t-test/contracts/A.sol",
+      "my-npm-pkg/contracts/C.sol"
+    ],
+    "sources": {
+      "/mnt/c/workdir/vscode_project/truffle-sca2t-test/contracts/A.sol": {
+        "source": "pragma solidity ^0.5.0;\nimport \"my-npm-pkg/contracts/C.sol\";\ncontract A is C {}\ncontract B {}",
+        "ast": {
+          "absolutePath": "/mnt/c/workdir/vscode_project/truffle-sca2t-test/contracts/A.sol",
+          "exportedSymbols": {
+            "A": [
+              5
+            ],
+            "B": [
+              6
+            ]
+          },
+          "id": 7,
+          "nodeType": "SourceUnit",
+          "nodes": [
+            {
+              "id": 1,
+              "literals": [
+                "solidity",
+                "^",
+                "0.5",
+                ".0"
+              ],
+              "nodeType": "PragmaDirective",
+              "src": "0:23:0"
+            },
+            {
+              "absolutePath": "my-npm-pkg/contracts/C.sol",
+              "file": "my-npm-pkg/contracts/C.sol",
+              "id": 2,
+              "nodeType": "ImportDirective",
+              "scope": 7,
+              "sourceUnit": 24,
+              "src": "24:36:0",
+              "symbolAliases": [],
+              "unitAlias": ""
+            },
+            {
+              "baseContracts": [
+                {
+                  "arguments": null,
+                  "baseName": {
+                    "contractScope": null,
+                    "id": 3,
+                    "name": "C",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 23,
+                    "src": "75:1:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_C_$23",
+                      "typeString": "contract C"
+                    }
+                  },
+                  "id": 4,
+                  "nodeType": "InheritanceSpecifier",
+                  "src": "75:1:0"
+                }
+              ],
+              "contractDependencies": [
+                23
+              ],
+              "contractKind": "contract",
+              "documentation": null,
+              "fullyImplemented": true,
+              "id": 5,
+              "linearizedBaseContracts": [
+                5,
+                23
+              ],
+              "name": "A",
+              "nodeType": "ContractDefinition",
+              "nodes": [],
+              "scope": 7,
+              "src": "61:18:0"
+            },
+            {
+              "baseContracts": [],
+              "contractDependencies": [],
+              "contractKind": "contract",
+              "documentation": null,
+              "fullyImplemented": true,
+              "id": 6,
+              "linearizedBaseContracts": [
+                6
+              ],
+              "name": "B",
+              "nodeType": "ContractDefinition",
+              "nodes": [],
+              "scope": 7,
+              "src": "80:13:0"
+            }
+          ],
+          "src": "0:93:0"
+        }
+      },
+      "my-npm-pkg/contracts/C.sol": {
+        "source": "pragma solidity ^0.5.0;\ncontract C {\n  uint public a;\n  function add(uint b) public {\n    a = a + b;\n  }\n}",
+        "ast": {
+          "absolutePath": "my-npm-pkg/contracts/C.sol",
+          "exportedSymbols": {
+            "C": [
+              23
+            ]
+          },
+          "id": 24,
+          "nodeType": "SourceUnit",
+          "nodes": [
+            {
+              "id": 8,
+              "literals": [
+                "solidity",
+                "^",
+                "0.5",
+                ".0"
+              ],
+              "nodeType": "PragmaDirective",
+              "src": "0:23:1"
+            },
+            {
+              "baseContracts": [],
+              "contractDependencies": [],
+              "contractKind": "contract",
+              "documentation": null,
+              "fullyImplemented": true,
+              "id": 23,
+              "linearizedBaseContracts": [
+                23
+              ],
+              "name": "C",
+              "nodeType": "ContractDefinition",
+              "nodes": [
+                {
+                  "constant": false,
+                  "id": 10,
+                  "name": "a",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 23,
+                  "src": "39:13:1",
+                  "stateVariable": true,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "39:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "public"
+                },
+                {
+                  "body": {
+                    "id": 21,
+                    "nodeType": "Block",
+                    "src": "84:20:1",
+                    "statements": [
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 19,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "argumentTypes": null,
+                            "id": 15,
+                            "name": "a",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 10,
+                            "src": "90:1:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "=",
+                          "rightHandSide": {
+                            "argumentTypes": null,
+                            "commonType": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            "id": 18,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "leftExpression": {
+                              "argumentTypes": null,
+                              "id": 16,
+                              "name": "a",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 10,
+                              "src": "94:1:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            "nodeType": "BinaryOperation",
+                            "operator": "+",
+                            "rightExpression": {
+                              "argumentTypes": null,
+                              "id": 17,
+                              "name": "b",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 12,
+                              "src": "98:1:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            "src": "94:5:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "src": "90:9:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "id": 20,
+                        "nodeType": "ExpressionStatement",
+                        "src": "90:9:1"
+                      }
+                    ]
+                  },
+                  "documentation": null,
+                  "id": 22,
+                  "implemented": true,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "add",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 13,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 12,
+                        "name": "b",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 22,
+                        "src": "69:6:1",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 11,
+                          "name": "uint",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "69:4:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "68:8:1"
+                  },
+                  "returnParameters": {
+                    "id": 14,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "84:0:1"
+                  },
+                  "scope": 23,
+                  "src": "56:48:1",
+                  "stateMutability": "nonpayable",
+                  "superFunction": null,
+                  "visibility": "public"
+                }
+              ],
+              "scope": 24,
+              "src": "24:82:1"
+            }
+          ],
+          "src": "0:106:1"
+        }
+      }
+    },
+    "verion": "0.5.2+commit.1df8f40c.Emscripten.clang",
+    "analysisMode": "quick"
+  },
+  "clientToolName": "truffle-sca2t",
+  "noCacheLookup": false,
+  "initialDelay": 45000,
+  "timeout": 300000
+}

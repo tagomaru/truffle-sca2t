@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "test:security": "mocha ./test_security --timeout 500000",
+    "test:security:html": "mocha ./test_security --timeout 500000 --reporter mocha-simple-html-reporter --reporter-options output=security-report.html"
+  }
+}

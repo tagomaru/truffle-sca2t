@@ -1,5 +1,5 @@
 {
-  "name": "truffle-sca2t-eventgen",
+  "name": "truffle-sca2t-mythx",
   "version": "0.1.0",
   "author": "tagomaru",
   "license": "MIT",
@@ -11,12 +11,9 @@
     "lint": "eslint .",
     "fix": "eslint . --fix",
     "pretest": "yarn run lint",
-    "test": "nyc mocha --reporter spec --recursive",
+    "test": "nyc mocha --reporter spec --recursive --timeout=5000",
+    "security": "mocha ./security_test ",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
-  },
-  "dependencies": {
-    "antlr4": "^4.7.2",
-    "node-console-input": "^1.1.1"
   },
   "keywords": [
     "solidity",
@@ -29,6 +26,15 @@
   ],
   "devDependencies": {
     "mocha": "^6.0.2",
+    "mocha-simple-html-reporter": "^1.1.0",
     "nyc": "^13.3.0"
+  },
+  "dependencies": {
+    "armlet": "^2.3.0",
+    "ejs": "^2.6.1",
+    "json2yaml": "^1.1.0",
+    "truffle-compile": "^4.0.10",
+    "truffle-config": "^1.1.7",
+    "truffle-resolver": "^5.0.10"
   }
 }

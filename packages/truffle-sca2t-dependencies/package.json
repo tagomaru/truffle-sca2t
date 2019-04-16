@@ -10,7 +10,7 @@
   "scripts": {
     "lint": "eslint .",
     "fix": "eslint . --fix",
-    "pretest": "npm run lint",
+    "pretest": "yarn run lint",
     "test": "nyc mocha --reporter spec --recursive",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
@@ -27,5 +27,9 @@
     "blockchain",
     "smartcontract",
     "truffle"
-  ]
+  ],
+  "devDependencies": {
+    "mocha": "^6.0.2",
+    "nyc": "^13.3.0"
+  }
 }
