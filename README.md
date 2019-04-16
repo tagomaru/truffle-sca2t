@@ -35,11 +35,11 @@ export MYTHX_PASSWORD='Put your password in here!'
 ```
 
 #### Generate Test Code Files
-```bash
+```console
 truffle run mythx fileA.sol
 ```
 or multiple selection
-```bash
+```console
 truffle run mythx fileA.sol fileB.sol
 ```
 
@@ -80,7 +80,9 @@ if you want html report (recommended), execute the below command.
 npm run test:security:html
 ```
 
-`security-report.html` is generated on your project root. The report file of the above `A` is like below. And you can see here.
+`security-report.html` is generated on your project root. The report file of the above `A` is like below. 
+
+And you can see the report [here](http://htmlpreview.github.io/?https://github.com/tagomaru/static-for-github/blob/master/truffle-sca2t/truffle-sca2t-mythx/security-report1.html).
 
 #### Configuration For Your CI
 This command automatically generates `sca2t-config.js` file on your project root for your setting. You can set report format, skipped SWCs, and so on.
@@ -102,7 +104,6 @@ or
 ```console
 truffle run dependencies fileA.sol fileB.sol
 ```
-
 
 <img src="https://raw.githubusercontent.com/wiki/tagomaru/sca2t/images/dependencies.png" height="236">
 
