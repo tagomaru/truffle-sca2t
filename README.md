@@ -83,7 +83,7 @@ npm run test:security:html
 
 `security-report.html` is generated on your project root. The report file of the above `A` is like below. 
 
-<img src="https://github.com/tagomaru/static-for-github/blob/master/truffle-sca2t/truffle-sca2t-mythx/sample-report1.jpg" height="236">
+<img src="https://github.com/tagomaru/static-for-github/blob/master/truffle-sca2t/truffle-sca2t-mythx/sample-report1.jpg">
 
 And you can see the report [here](http://htmlpreview.github.io/?https://github.com/tagomaru/static-for-github/blob/master/truffle-sca2t/truffle-sca2t-mythx/security-report1.html).
 
