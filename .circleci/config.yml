@@ -35,4 +35,13 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: ./node_modules/.bin/lerna run test
+      - run:
+          name: Run tests
+          command: ./node_modules/.bin/lerna run test
+      
+      # run coverall
+      - run:
+          name: Coverage report
+          command: ./node_modules/.bin/lerna run coverage
+          name: coverage report
+          command: 
