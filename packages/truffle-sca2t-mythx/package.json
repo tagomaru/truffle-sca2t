@@ -12,7 +12,6 @@
     "fix": "eslint . --fix",
     "pretest": "yarn run lint",
     "test": "nyc mocha --reporter spec --recursive --timeout=5000",
-    "security": "mocha ./security_test ",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "keywords": [
@@ -27,7 +26,8 @@
   "devDependencies": {
     "mocha": "^6.0.2",
     "mocha-simple-html-reporter": "^1.1.0",
-    "nyc": "^13.3.0"
+    "nyc": "^13.3.0",
+    "rewire": "^4.0.1"
   },
   "dependencies": {
     "armlet": "^2.3.0",
