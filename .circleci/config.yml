@@ -40,6 +40,6 @@ jobs:
           command: ./node_modules/.bin/lerna run test
       
       # run coverall
-      - run:
-          name: Coverage report
-          command: ./node_modules/.bin/lerna run coverage 
+      #- run:
+      #    name: Coverage report
+      #    command: ./node_modules/.bin/lerna run coverage 
