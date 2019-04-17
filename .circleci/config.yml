@@ -27,6 +27,7 @@ jobs:
             - v1-dependencies-
 
       - run: yarn install
+      - run: ./node_modules/.bin/lerna bootstrap
 
       - save_cache:
           paths:
