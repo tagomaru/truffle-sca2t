@@ -27,7 +27,8 @@
   "devDependencies": {
     "mocha": "^6.0.2",
     "mocha-simple-html-reporter": "^1.1.0",
-    "nyc": "^13.3.0"
+    "nyc": "^13.3.0",
+    "rewire": "^4.0.1"
   },
   "dependencies": {
     "armlet": "^2.3.0",
