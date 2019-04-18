@@ -88,7 +88,18 @@ const Report = class {
   }
 
   getReport (jsonIssues) {
-    const reportFormat = require(path.join(this.config.working_directory, 'sca2t-config.js')).mythx.reportFormat
+    let reportFormat
+    try {
+      // load skippedSWCs from config file.
+      reportFormat = require(path.join(this.config.working_directory, 'sca2t-config.js')).mythx.reportFormat
+
+      // if undefined, throw err
+      if (!reportFormat) throw new Error('reportFormat is not defined.')
+    } catch (err) {
+      // set default value
+      reportFormat = 'json'
+    }
+
     let issues = []
     jsonIssues.forEach(vulnerability => {
       const title = `${vulnerability.description.head} (${vulnerability.severity})`
