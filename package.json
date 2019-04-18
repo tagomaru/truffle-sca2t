@@ -6,6 +6,7 @@
   "author": [
     "tagomaru"
   ],
+  "private": true,
   "devDependencies": {
     "coveralls": "^3.0.3",
     "eslint": "^5.16.0",
@@ -29,5 +30,10 @@
     "security",
     "blockchain",
     "smartcontract"
-  ]
+  ],
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  }
 }
