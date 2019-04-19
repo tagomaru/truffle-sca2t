@@ -92,6 +92,7 @@ const Runner = class {
         deployedSourceMap: contract.deployedSourceMap,
         sourceList: files,
         sources: {},
+        mainSource: this.targetFile,
         verion: compilerInfo.version,
         analysisMode: 'quick'
       }
