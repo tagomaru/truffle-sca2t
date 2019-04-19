@@ -1,0 +1,59 @@
+{
+  "name": "login",
+  "event": [
+    {
+      "listen": "test",
+      "script": {
+        "id": null,
+        "exec": [
+          "const token = JSON.parse(responseBody).access",
+          "pm.environment.set(\"access_token\", token)"
+        ],
+        "type": "text/javascript"
+      }
+    }
+  ],
+  "request": {
+    "method": "POST",
+    "header": [
+      {
+        "key": "host",
+        "value": "api.mythx.io"
+      },
+      {
+        "key": "content-type",
+        "value": "application/x-www-form-urlencoded"
+      }
+    ],
+    "body": {
+      "mode": "urlencoded",
+      "urlencoded": [
+        {
+          "key": "ethAddress",
+          "value": "{{ethAddress}}",
+          "type": "text"
+        },
+        {
+          "key": "password",
+          "value": "{{password}}",
+          "type": "text"
+        }
+      ]
+    },
+    "url": {
+      "raw": "https://api.mythx.io/v1/auth/login",
+      "protocol": "https",
+      "host": [
+        "api",
+        "mythx",
+        "io"
+      ],
+      "path": [
+        "v1",
+        "auth",
+        "login"
+      ]
+    }
+  },
+  "response": []
+}
