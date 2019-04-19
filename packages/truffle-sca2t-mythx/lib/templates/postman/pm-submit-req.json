@@ -1,0 +1,54 @@
+{
+  "name": "2.submit",
+  "event": [
+    {
+      "listen": "test",
+      "script": {
+        "exec": [
+          "const uuid = JSON.parse(responseBody).uuid",
+          "set uuid script is put in here"
+        ],
+        "type": "text/javascript"
+      }
+    }
+  ],
+  "request": {
+    "method": "POST",
+    "header": [
+      {
+        "key": "Authorization",
+        "value": "Bearer {{access_token}}"
+      },
+      {
+        "key": "host",
+        "value": "api.mythx.io"
+      },
+      {
+        "key": "accept",
+        "value": "application/json"
+      },
+      {
+        "key": "content-type",
+        "value": "application/json"
+      }
+    ],
+    "body": {
+      "mode": "raw",
+      "raw": null
+    },
+    "url": {
+      "raw": "https://api.mythx.io/v1/analyses",
+      "protocol": "https",
+      "host": [
+        "api",
+        "mythx",
+        "io"
+      ],
+      "path": [
+        "v1",
+        "analyses"
+      ]
+    }
+  },
+  "response": []
+}

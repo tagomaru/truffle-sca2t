@@ -46,6 +46,7 @@ const printHelpMessage = (config) => {
 
 Options:
   --uuid      get analysis report with UUID.
+  --postman   generate Postman collection file.
 `
   config.logger.log(message)
 }
