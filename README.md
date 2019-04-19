@@ -24,6 +24,7 @@ module.exports = {
 # Command List
 ## 1. mythx
 The `mythx` command generate test code files for [MythX](https://mythx.io/). The test files work as MythX client and report vulnerabilies, and some errors, and MythX Log. You can integrate the test code files in your CI because the test code files never depend on CI products such as Circle CI, Travis CI, Jenkins, and so on.
+Also this command can generate [Postman](https://www.getpostman.com/) Collection File for lovers of Postman.
 
 ### 1-1. Generate Test Code File of mocha
 #### 1-1-1. MythX Account
@@ -100,7 +101,7 @@ $ truffle run mythx --uuid='your UUID'
 ### 1-2. Postman Support
 #### 1-2-1. Genereta Postman Collection File
 If you want to dive into http raw request/response, use postman option.
-This generates Postman Collection file which sends same requests as the mocha test code does.
+This generates [Postman](https://www.getpostman.com/) Collection file which sends same requests as the mocha test code does.
 ```
 $ truffle run mythx fileA.sol --postman
 ```
