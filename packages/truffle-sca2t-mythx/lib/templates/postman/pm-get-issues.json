@@ -1,0 +1,32 @@
+{
+	"name": "4.get issues",
+	"request": {
+		"method": "GET",
+		"header": [
+			{
+				"key": "authorization",
+				"value": "Bearer {{access_token}}"
+			}
+		],
+		"body": {
+			"mode": "raw",
+			"raw": ""
+		},
+		"url": {
+			"raw": "https://api.mythx.io/v1/analyses/",
+			"protocol": "https",
+			"host": [
+				"api",
+				"mythx",
+				"io"
+			],
+			"path": [
+				"v1",
+				"analyses",
+				"uuid is set in here",
+				"issues"
+			]
+		}
+	},
+	"response": []
+}

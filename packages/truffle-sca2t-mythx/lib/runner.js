@@ -146,33 +146,10 @@ const Runner = class {
 
   async analyze (dataID, data) {
     return new Promise(async (resolve, reject) => {
-      let armletOptions
-      try {
-        // load armlet option from config file.
-        armletOptions = require(path.join(this.config.working_directory, 'sca2t-config.js')).armletOptions.mythx
-
-        // if undefined, throw err
-        if (!armletOptions) throw new Error('amrletOptions is not defined.')
-      } catch (err) {
-        // set default value
-        armletOptions = {
-          initialDelay: 45 * 1000, // 45 seconds
-          timeout: 5 * 60 * 1000, // 300 seconds
-          noCacheLookup: false
-        }
-      }
-
+      const reqBody = this.generateReqBody(data)
       let obj = {}
       try {
-        let results = await this.client.analyzeWithStatus(
-          {
-            data,
-            clientToolName: 'truffle-sca2t',
-            noCacheLookup: armletOptions.noCacheLookup,
-            initialDelay: armletOptions.initialDelay,
-            timeout: armletOptions.timeout
-          }
-        )
+        let results = await this.client.analyzeWithStatus(reqBody)
 
         if (results.status.status === 'Error') {
           obj[dataID] = { error: results.status }
@@ -195,6 +172,34 @@ const Runner = class {
         resolve(obj)
       }
     })
+  }
+
+  generateReqBody (data) {
+    let armletOptions
+    try {
+      // load armlet option from config file.
+      armletOptions = require(path.join(this.config.working_directory, 'sca2t-config.js')).armletOptions.mythx
+
+      // if undefined, throw err
+      if (!armletOptions) throw new Error('amrletOptions is not defined.')
+    } catch (err) {
+      // set default value
+      armletOptions = {
+        initialDelay: 45 * 1000, // 45 seconds
+        timeout: 5 * 60 * 1000, // 300 seconds
+        noCacheLookup: false
+      }
+    }
+
+    const reqBody = {
+      data,
+      clientToolName: 'truffle-sca2t',
+      noCacheLookup: armletOptions.noCacheLookup,
+      initialDelay: armletOptions.initialDelay,
+      timeout: armletOptions.timeout
+    }
+
+    return reqBody
   }
 }
 
