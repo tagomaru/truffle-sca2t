@@ -30,7 +30,9 @@
     "rewire": "^4.0.1"
   },
   "dependencies": {
+    "@oclif/config": "^1.12.12",
     "armlet": "^2.3.0",
+    "cli-ux": "^5.2.1",
     "ejs": "^2.6.1",
     "json2yaml": "^1.1.0",
     "truffle-compile": "^4.0.10",

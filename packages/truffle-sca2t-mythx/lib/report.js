@@ -74,7 +74,6 @@ const Report = class {
         } else {
           sourceFile = this.data.sourceList[this.data.sourceList.indexOf(this.issues.sourceList[fileID].substr(1))]
         }
-
         const source = this.data.sources[sourceFile].source
         const locationsEle = {
           file: sourceFile

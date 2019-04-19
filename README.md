@@ -69,7 +69,10 @@ The command `truffle run mythx A.sol` generates test code file 'test_A.sol_.js' 
 
 That is why, you do not need to set files which the main contract file depends on.
 
-#### 1-1-3. Run The Test Code Files
+#### 1-1-3. Configuration For Your CI
+This command automatically generates `sca2t-config.js` file on your project root for your setting. You can set report format, skipped SWCs, and so on.
+
+#### 1-1-4. Run The Test Code Files
 If test code files are successfully generated, you can run mocha test.
 
 ```
@@ -88,9 +91,11 @@ $ npm run test:security:html
 
 And you can see the report [here](http://htmlpreview.github.io/?https://github.com/tagomaru/static-for-github/blob/master/truffle-sca2t/truffle-sca2t-mythx/security-report1.html).
 
-#### 1-1-4. Configuration For Your CI
-This command automatically generates `sca2t-config.js` file on your project root for your setting. You can set report format, skipped SWCs, and so on.
-
+#### 1-1-5. Get analysis (if timeout happens)
+If timeout happens, you can get analysis later with UUID which the test shows.
+```
+$ truffle run mythx --uuid='your UUID'
+```
 
 ## 2. dependencies
 

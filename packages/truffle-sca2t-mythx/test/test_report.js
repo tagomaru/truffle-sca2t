@@ -67,7 +67,7 @@ describe('report.js', () => {
         ],
         sources: {
           '/issues/contracts/A.sol': {
-            source: 'pragma solidity ^0.5.0;\\nimport "./C.sol";\\ncontract A is C {}\\ncontract B {}'
+            source: 'pragma solidity ^0.5.0;\nimport "./C.sol";\ncontract A is C {}\ncontract B {}'
           },
           '/issues/contracts/C.sol': {
             source: 'pragma solidity ^0.5.0;\ncontract C {\n  uint public a;\n  function add(uint b) public {\n    a = a + b;\n  }\n}\n'
