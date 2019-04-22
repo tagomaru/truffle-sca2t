@@ -1,6 +1,6 @@
 {
   "name": "truffle-sca2t-mythx",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "tagomaru",
   "license": "MIT",
   "main": "index.js",
@@ -32,11 +32,11 @@
     "cli-ux": "^5.2.1",
     "ejs": "^2.6.1",
     "json2yaml": "^1.1.0",
-    "truffle-compile": "^4.0.10",
-    "truffle-config": "^1.1.7",
-    "truffle-resolver": "^5.0.10",
     "mocha": "^6.0.2",
     "mocha-simple-html-reporter": "^1.1.0",
-    "nyc": "^13.3.0"
+    "nyc": "^13.3.0",
+    "truffle-compile": "^4.0.10",
+    "truffle-config": "^1.1.7",
+    "truffle-resolver": "^5.0.10"
   }
 }
