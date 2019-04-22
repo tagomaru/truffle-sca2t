@@ -64,24 +64,19 @@ const Analysis = class {
     const report = new Report(data, this.config)
     const jsonIssues = report.getJsonIssues(result[0])
     if (jsonIssues.length > 0) {
-      this.config.logger.log(`
-${'=========== Vulnerability Report ================'.yellow}
-${(jsonIssues.length + ' vulnerabilities were found.').red} 
-
-Vulnerabilities:
-${report.getReport(jsonIssues)}
-${'================================================='.yellow}
-      `)
+      this.config.logger.log(`${'=========== Vulnerability Report ================'.yellow}`)
+      this.config.logger.log(`${(jsonIssues.length + ' vulnerabilities were found.').red}`)
+      this.config.logger.log('\nVulnerabilities:')
+      this.config.logger.log(`${report.getReport(jsonIssues)}`)
+      this.config.logger.log(`${'=================================================\n'.yellow}`)
     }
 
     // mythx log report
     const logs = report.getMythXLogs()
-    if (logs.length > 0) {
-      this.config.logger.log(`
-${'=========== MythX Logs ================'.yellow}
-${JSON.stringify(logs, null, 2)}
-${'======================================='.yellow}
-      `)
+    if (logs && logs.length > 0) {
+      this.config.logger.log(`${'=========== MythX Logs ================'.yellow}`)
+      this.config.logger.log(`${JSON.stringify(logs, null, 2)}`)
+      this.config.logger.log(`${'======================================='.yellow}`)
     }
   }
 

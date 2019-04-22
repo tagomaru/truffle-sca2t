@@ -45,6 +45,7 @@ const printHelpMessage = (config) => {
   e.g.: truffle run mythx fileA.sol fileB.sol
 
 Options:
+  --help      print help.
   --uuid      get analysis report with UUID.
   --postman   generate Postman collection file.
 `

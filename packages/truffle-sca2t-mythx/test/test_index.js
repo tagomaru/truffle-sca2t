@@ -28,7 +28,7 @@ describe('index.js', () => {
   afterEach(() => {
   })
 
-  it('should show help if help options is set', async () => {
+  it('should show help if help option is set', async () => {
     const stubPrintHelpMessage = sinon.stub()
     rewiredIndex.__set__({
       'printHelpMessage': stubPrintHelpMessage
