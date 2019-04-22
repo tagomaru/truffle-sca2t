@@ -1,6 +1,6 @@
 {
   "name": "truffle-sca2t",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "tagomaru",
   "homepage": "https://github.com/tagomaru/truffle-sca2t",
   "license": "MIT",
@@ -18,9 +18,9 @@
   },
   "dependencies": {
     "sinon": "^7.3.1",
-    "truffle-sca2t-dependencies": "^0.1.0",
-    "truffle-sca2t-eventgen": "^0.1.0",
-    "truffle-sca2t-mythx": "^0.1.0"
+    "truffle-sca2t-dependencies": "^0.2.0",
+    "truffle-sca2t-eventgen": "^0.2.0",
+    "truffle-sca2t-mythx": "^0.2.0"
   },
   "keywords": [
     "solidity",
