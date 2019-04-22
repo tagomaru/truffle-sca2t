@@ -17,7 +17,7 @@ const Report = class {
       this.issues = issues
     }
     let logs = []
-    if (this.issues.meta.logs) {
+    if (this.issues.meta && this.issues.meta.logs) {
       this.issues.meta.logs.forEach(log => {
         logs.push(log)
       })

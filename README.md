@@ -119,6 +119,20 @@ Currently, this supports the below requests.
 3. get status
 4. get issues
 
+### 1-3. Advanced Options
+Run `truffle run mythx --help` to show advanced configutation options.
+```console
+$ truffle run mythx --help
+Usage: truffle run mythx [*file-name1* [*file-name2*] ...]
+  e.g.: truffle run mythx fileA.sol fileB.sol
+
+Options:
+  --help      print help.
+  --uuid      get analysis report with UUID.
+  --postman   generate Postman collection file.
+
+```
+
 ## 2. dependencies
 
 The `dependencies` command outputs a draggable report to visualize dependencies among contracts.

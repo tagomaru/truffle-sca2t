@@ -1,5 +1,4 @@
 const { cli } = require('cli-ux')
-// const Report = require('./report').Report
 const Generator = require('./generator').Generator
 const Runner = require('./runner').Runner
 const fs = require('fs')
