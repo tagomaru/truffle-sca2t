@@ -115,7 +115,7 @@ const Report = class {
       // if not yaml, it is always 'json' format
       report = JSON.stringify(issues, null, 2)
     }
-    return report.replace(/\\"/g, '\'').replace(/\\n/g, ' ')
+    return report.replace(/\\"/g, '\'').replace(/\\n/g, ' ').replace(/\\t/g, '\t')
   }
 
   convertErrToStr (err) {

@@ -84,6 +84,11 @@ const Runner = class {
     const dataArr = []
 
     targetContracts.forEach(contract => {
+      // replace link with dummy address
+      const dummyAddress = '0000000000000000000000000000000000000000'
+      contract.bytecode = contract.bytecode.replace(/__.{38}/g, dummyAddress)
+      contract.deployedBytecode = contract.deployedBytecode.replace(/__.{38}/g, dummyAddress)
+
       const data = {
         contractName: contract.contract_name,
         bytecode: contract.bytecode,
