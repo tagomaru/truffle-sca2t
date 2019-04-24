@@ -23,7 +23,7 @@ module.exports = {
 
 # Command List
 ## 1. mythx
-The `mythx` command generate test code files for [MythX](https://mythx.io/). The test files work as MythX client and report vulnerabilies, and some errors, and MythX Log. You can integrate the test code files in your CI because the test code files never depend on specific CI products such as Circle CI, Travis CI, Jenkins, and so on. Ypu can see [sample project](https://github.com/tagomaru/truffle-sca2t-sample) and the [test result on CircleCI](https://circleci.com/gh/tagomaru/truffle-sca2t-sample/2).
+The `mythx` command generate test code files for [MythX](https://mythx.io/). The test files work as MythX client and report vulnerabilies, and some errors, and MythX Log. You can integrate the test code files in your CI because the test code files never depend on specific CI products such as Circle CI, Travis CI, Jenkins, and so on. You can see [sample project](https://github.com/tagomaru/truffle-sca2t-sample) and the [test result on CircleCI](https://circleci.com/gh/tagomaru/truffle-sca2t-sample/2).
 Also this command can generate [Postman](https://www.getpostman.com/) Collection File for lovers of Postman.
 
 ### 1-1. Generate Test Code File of mocha
