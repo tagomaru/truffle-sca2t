@@ -101,7 +101,7 @@ const Generator = class {
       ejs.renderFile(ejbMainFile, { solFileName, contractTemplates }, (err, template) => {
         if (err) throw err
         // generate test code file
-        fs.writeFileSync(path.join(this.config.working_directory, 'test_security/test_' + solFileName + '_.js'), template)
+        fs.writeFileSync(path.join(this.config.working_directory, 'test_security/test_' + path.basename(solFileName) + '_.js'), template)
         this.config.logger.log('success'.green, '- ./test_security/test_' + solFileName + '_.js was generated.')
       })
     }

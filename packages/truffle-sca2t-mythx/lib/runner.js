@@ -56,7 +56,7 @@ const Runner = class {
               // if bytecode is not set, skip.
               // this contract can be interaface or have some problem in source code.
               if (compiledOutput[contract].bytecode === '0x') {
-                this.config.logger.log(`bytecode of '${contract}' is '0x'. skipping...`.red)
+                this.config.logger.log(`info - bytecode of '${contract}' is '0x'. skipping...`)
 
                 // delete the output from compiledOutput
                 delete compiledOutput[contract]
