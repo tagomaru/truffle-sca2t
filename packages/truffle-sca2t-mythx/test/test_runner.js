@@ -114,8 +114,8 @@ describe('runner.js', () => {
       const runner = new Runner('C.sol', config)
       const results = await runner.doCompile()
       const compiledOutput = results.compiledOutput
-      assert.ok(logStub.calledWith(`bytecode of 'C' is '0x'. skipping...`.red))
-      assert.ok(!logStub.calledWith(`bytecode of 'D' is '0x'. skipping...`.red))
+      assert.ok(logStub.calledWith(`info - bytecode of 'C' is '0x'. skipping...`))
+      assert.ok(!logStub.calledWith(`info - bytecode of 'D' is '0x'. skipping...`))
       assert.strictEqual(Object.keys(compiledOutput).length, 1)
       assert.strictEqual(compiledOutput.C, undefined)
       assert.strictEqual(compiledOutput.D.contract_name, 'D')
