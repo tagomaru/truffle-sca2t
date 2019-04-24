@@ -102,7 +102,7 @@ const Generator = class {
         if (err) throw err
         // generate test code file
         fs.writeFileSync(path.join(this.config.working_directory, 'test_security/test_' + path.basename(solFileName) + '_.js'), template)
-        this.config.logger.log('success'.green, '- ./test_security/test_' + solFileName + '_.js was generated.')
+        this.config.logger.log('success'.green, '- ./test_security/test_' + path.basename(solFileName) + '_.js was generated.')
       })
     }
   }
