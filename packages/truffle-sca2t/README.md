@@ -14,7 +14,7 @@ $ npm install -g truffle-sca2t
 ```
 
 # Configuration
-Add the following to `truffle.js` in the root directory of your Truffle project:
+Add the following to `truffle-config.js` in the root directory of your Truffle project:
 ```javascript
 module.exports = {
     plugins: [ "truffle-sca2t" ]
@@ -24,7 +24,8 @@ module.exports = {
 # Command List
 ## 1. mythx
 The `mythx` command generate test code files for [MythX](https://mythx.io/). The test files work as MythX client and report vulnerabilies, and some errors, and MythX Log. You can integrate the test code files in your CI because the test code files never depend on specific CI products such as Circle CI, Travis CI, Jenkins, and so on. You can see [sample project](https://github.com/tagomaru/truffle-sca2t-sample) and the [test result on CircleCI](https://circleci.com/gh/tagomaru/truffle-sca2t-sample/2).
-Also this command can generate [Postman](https://www.getpostman.com/) Collection File for lovers of Postman.
+Also this command can generate [Postman](https://www.getpostman.com/) Collection File for lovers of Postman.  
+If you just want to use this as MythX client tool, you can use command line interface mode.
 
 ### 1-1. Generate Test Code File of mocha
 #### 1-1-1. MythX Account
@@ -43,6 +44,10 @@ $ truffle run mythx fileA.sol
 or multiple selection
 ```
 $ truffle run mythx fileA.sol fileB.sol
+```
+The below is also fine. (tab autocompletion support)
+```
+$ truffle run mythx contracts/fileA.sol contracts/fileB.sol
 ```
 
 You can set multiple files, however this command automatically searches dependencies. For example,
@@ -88,7 +93,7 @@ $ npm run test:security:html
 
 `security-report.html` is generated on your project root. The report file of the above `A` is like below. As you can see, the file reports the vulnerability of `C`.
 
-<img src="https://github.com/tagomaru/static-for-github/blob/master/truffle-sca2t/truffle-sca2t-mythx/sample-report1.jpg">
+<img src="https://raw.githubusercontent.com/tagomaru/static-for-github/master/truffle-sca2t/truffle-sca2t-mythx/sample-report1.jpg">
 
 And you can see the report [here](http://htmlpreview.github.io/?https://github.com/tagomaru/static-for-github/blob/master/truffle-sca2t/truffle-sca2t-mythx/security-report1.html).
 
@@ -103,11 +108,11 @@ $ truffle run mythx --uuid='your UUID'
 If you want to dive into http raw request/response, use postman option.
 This generates [Postman](https://www.getpostman.com/) Collection file which sends same requests as the mocha test code does.
 ```
-$ truffle run mythx fileA.sol --postman
+$ truffle run mythx contracts/fileA.sol --postman
 ```
 or multiple selection
 ```
-$ truffle run mythx fileA.sol fileB.sol --postman
+$ truffle run mythx contracts/fileA.sol contracts/fileB.sol --postman
 ```
 #### 1-2-2. Import Postman Collection File in Postman
 Import the generated file in Postman.
@@ -119,18 +124,33 @@ Currently, this supports the below requests.
 3. get status
 4. get issues
 
-### 1-3. Advanced Options
+### 1-3. Command Line Interface Mode
+If you do not need test code files, you can analyze without test code files. Just add `--cli` option.
+```
+$ truffle run mythx contracts/fileA.sol contract/fileB.sol --cli
+```
+By adding `--markdown` option, you can get markdown format report. 
+```
+$ truffle run mythx contracts/fileA.sol contract/fileB.sol --cli --markdown
+```
+
+The sample is [here](https://github.com/tagomaru/static-for-github/blob/master/truffle-sca2t/truffle-sca2t-mythx/security-report.md).
+(the `emoji` is option.)
+
+### 1-4. Advanced Options
 Run `truffle run mythx --help` to show advanced configutation options.
 ```console
 $ truffle run mythx --help
 Usage: truffle run mythx [*file-name1* [*file-name2*] ...]
-  e.g.: truffle run mythx fileA.sol fileB.sol
+  e.g.: truffle run mythx contracts/fileA.sol contracts/sub/fileB.sol
 
 Options:
   --help      print help.
   --uuid      get analysis report with UUID.
   --postman   generate Postman collection file.
-
+  --cli       analyze in cli mode.
+  --markdown  generate markdown format report in cli mode.
+  --emoji     insert emoji in markdown format report. (Only support GitHub Flavored Markdown)
 ```
 
 ## 2. dependencies
