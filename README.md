@@ -127,11 +127,11 @@ Currently, this supports the below requests.
 ### 1-3. Command Line Interface Mode
 If you do not need test code files, you can analyze without test code files. Just add `--cli` option.
 ```
-$ truffle run mythx contracts/fileA.sol contract/fileB.sol --cli
+$ truffle run mythx contracts/fileA.sol contracts/fileB.sol --cli
 ```
 By adding `--markdown` option, you can get markdown format report. 
 ```
-$ truffle run mythx contracts/fileA.sol contract/fileB.sol --cli --markdown
+$ truffle run mythx contracts/fileA.sol contracts/fileB.sol --cli --markdown
 ```
 
 The sample is [here](https://github.com/tagomaru/static-for-github/blob/master/truffle-sca2t/truffle-sca2t-mythx/security-report.md).
