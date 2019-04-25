@@ -69,6 +69,8 @@ const Analysis = class {
       this.config.logger.log('\nVulnerabilities:')
       this.config.logger.log(`${report.getReport(jsonIssues)}`)
       this.config.logger.log(`${'=================================================\n'.yellow}`)
+    } else {
+      this.config.logger.log(`${'No vulnerability was found.'.green}`)
     }
 
     // mythx log report
@@ -77,6 +79,7 @@ const Analysis = class {
       this.config.logger.log(`${'=========== MythX Logs ================'.yellow}`)
       this.config.logger.log(`${JSON.stringify(logs, null, 2)}`)
       this.config.logger.log(`${'======================================='.yellow}`)
+      this.config.logger.log(`${'It may not have been analyzed correctly\n'.red}`)
     }
   }
 
