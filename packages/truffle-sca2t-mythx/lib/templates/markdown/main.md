@@ -6,9 +6,10 @@
 * **Tools:** [MythX](https://mythx.io/)
 
 ### 1.2 Number of vulnerabilities per severity
-|  High  |  Medium  |
+|       |  Num  |
 | :---: | :---: |
-|  <%= numOfHigh %>  |  <%= numOfMedium %>  |
+|  High | <%= numOfHigh %> |
+|  Medium |  <%= numOfMedium %> |
 
 <% details.forEach(detail => { %>
 <%- detail %>
