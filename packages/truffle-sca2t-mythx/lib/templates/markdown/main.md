@@ -1,12 +1,18 @@
-# Audit Report
+# <%= projectName %> Audit Report
+{{table-of-contents}}
 ## 1 Overview
-#### 1.1 Audit Details
+### 1.1 Audit Details
 * **Project Name:** <%= projectName %>
 * **Tools:** [MythX](https://mythx.io/)
+
+### 1.2 Number of vulnerabilities per severity
+|  High  |  Medium  |
+| :---: | :---: |
+|  <%= numOfHigh %>  |  <%= numOfMedium %>  |
 
 <% details.forEach(detail => { %>
 <%- detail %>
 <% }) %> 
 
 ***
-powered by [truffle-sca2t](https://github.com/tagomaru/truffle-sca2t)
+***Powered By [truffle-sca2t](https://github.com/tagomaru/truffle-sca2t)***

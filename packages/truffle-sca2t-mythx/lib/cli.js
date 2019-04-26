@@ -4,13 +4,17 @@ const Report = require('./report').Report
 const ejs = require('ejs')
 const fs = require('fs')
 const path = require('path')
+const toc = require('markdown-toc')
 
 const CLI = class {
   constructor (config, targetFiles) {
     this.config = config
     this.targetFiles = targetFiles
     if (this.config.markdown) {
-      this.reports = {}
+      this.reports = {
+        numOfHigh: 0,
+        numOfMedium: 0
+      }
     }
   }
 
@@ -174,20 +178,20 @@ const CLI = class {
     const detailMDs = []
     Object.keys(this.reports).forEach(contractFile => {
       Object.keys(this.reports[contractFile]).forEach(contractName => {
-        let capterMD = `## ${chapter}. Report | ${contractFile}: ${contractName}\n`
+        let capterMD = `## ${chapter} Report | ${contractFile}: ${contractName}\n`
 
         const report = this.reports[contractFile][contractName]
 
         // generate md for error
-        let errorMD = `#### MythX Error \n`
+        let errorMD = `* **MythX Error:**  \n`
         if (report.error) {
-          errorMD = errorMD + report.error
+          errorMD = errorMD + report.error + '  \n'
         } else {
           errorMD = errorMD + 'N/A  \n'
         }
 
         // generate md for MythX Log
-        let logMD = '#### MythX Log\n'
+        let logMD = '* **MythX Log:**  \n'
         if (report.logs) {
           report.logs.forEach(log => {
             logMD = logMD + `${log.level}: ${log.msg}  \n`
@@ -202,10 +206,12 @@ const CLI = class {
         if (jsonIssues) {
           jsonIssues.forEach(issue => {
             let severity = issue.severity
-            if (this.config.emoji && severity === 'High') {
-              severity = `${severity} :scream:`
-            } else if (this.config.emoji && severity === 'Medium') {
-              severity = `${severity} :fearful:`
+            if (severity === 'High') {
+              severity = this.config.emoji ? `${severity} :scream:` : severity
+              this.reports.numOfHigh++
+            } else if (severity === 'Medium') {
+              severity = this.config.emoji ? `${severity} :fearful:` : severity
+              this.reports.numOfMedium++
             }
             const params = {
               chapter,
@@ -242,14 +248,16 @@ const CLI = class {
     const projectName = path.basename(this.config.working_directory)
     const params = {
       projectName: projectName,
-      details: detailMDs
+      details: detailMDs,
+      numOfHigh: this.reports.numOfHigh,
+      numOfMedium: this.reports.numOfMedium
     }
 
     // generate report
     const ejbMainFile = path.resolve(__dirname, 'templates/markdown/main.md')
     ejs.renderFile(ejbMainFile, params, (err, template) => {
       if (err) throw err
-      fs.writeFileSync(path.resolve(this.config.working_directory, 'security-report.md'), template)
+      fs.writeFileSync(path.resolve(this.config.working_directory, 'security-report.md'), template.replace('{{table-of-contents}}', toc(template, { maxdepth: 2, firsth1: false }).content + '\n'))
     })
   }
 }
