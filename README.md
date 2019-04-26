@@ -135,7 +135,7 @@ $ truffle run mythx contracts/fileA.sol contracts/fileB.sol --cli --markdown
 ```
 
 * **report image**
-<img src="https://raw.githubusercontent.com/tagomaru/static-for-github/master/truffle-sca2t/truffle-sca2t-mythx/sample-report-md.jpg">
+<img src="https://raw.githubusercontent.com/tagomaru/static-for-github/master/truffle-sca2t/truffle-sca2t-mythx/sample-report-md1.jpg">
 
 The sample is [here](https://github.com/tagomaru/static-for-github/blob/master/truffle-sca2t/truffle-sca2t-mythx/security-report.md).
 (the `emoji` is option.)
