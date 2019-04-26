@@ -10,8 +10,11 @@ sca2t pronunciation is like skärt.
 Install it via npm:
 
 ```
-$ npm install -g truffle-sca2t
+$ npm install truffle-sca2t
 ```
+~~$ npm install -g truffle-sca2t~~
+
+:bulb: ***Currently this does NOT support global install*** :bulb:
 
 # Configuration
 Add the following to `truffle-config.js` in the root directory of your Truffle project:
