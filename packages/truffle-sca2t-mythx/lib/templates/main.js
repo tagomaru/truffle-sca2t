@@ -1,6 +1,5 @@
 const assert = require('assert')
-const Runner = require('truffle-sca2t-mythx').Runner
-const Report = require('truffle-sca2t-mythx').Report
+const { Runner, Report } = require('truffle-sca2t').MythX
 
 describe('<%- solFileName %>', () => {
   let runner;

@@ -3,7 +3,19 @@
 
 truffle-sca2t is a plugin of [Truffle framework](https://truffleframework.com/docs/truffle/overview) and an assistant tool for smart contract auditing. This provides some utilities to help your smart contract auditing and make your smart contract more secure and safe. The plugin is compatible with Truffle 5.0 or higher.
 
-sca2t pronunciation is like skärt.
+sca2t pronunciation is like `skärt`.
+
+- [Getting Started](#getting-started)
+- [Configuration](#configuration)
+- [Command List](#command-list)
+  * [1. mythx](#1-mythx)
+    + [1-1. Generate Test Code File of mocha](#1-1-generate-test-code-file-of-mocha)
+    + [1-2. Postman Support](#1-2-postman-support)
+    + [1-3. Command Line Interface Mode](#1-3-command-line-interface-mode)
+    + [1-4. Advanced Options](#1-4-advanced-options)
+  * [2. dependencies](#2-dependencies)
+  * [3. eventgen](#3-eventgen)
+- [License](#license)
 
 # Getting Started
 
@@ -12,9 +24,10 @@ Install it via npm:
 ```
 $ npm install truffle-sca2t
 ```
-~~$ npm install -g truffle-sca2t~~
-
-:bulb: ***Currently this does NOT support global install*** :bulb:
+If you want install it globaly, you need to install it with [mocha](https://www.npmjs.com/package/mocha) and [mocha-simple-html-reporter](https://www.npmjs.com/package/mocha-simple-html-reporter).
+```
+$ npm install -g truffle-sca2t mocha mocha-simple-html-reporter
+```
 
 # Configuration
 Add the following to `truffle-config.js` in the root directory of your Truffle project:
