@@ -24,7 +24,7 @@ Install it via npm:
 ```
 $ npm install truffle-sca2t
 ```
-If you want install it globally, you need to install it with [mocha](https://www.npmjs.com/package/mocha) and [mocha-simple-html-reporter](https://www.npmjs.com/package/mocha-simple-html-reporter).
+If you want to install it globally, you need to install it with [mocha](https://www.npmjs.com/package/mocha) and [mocha-simple-html-reporter](https://www.npmjs.com/package/mocha-simple-html-reporter).
 ```
 $ npm install -g truffle-sca2t mocha mocha-simple-html-reporter
 ```
