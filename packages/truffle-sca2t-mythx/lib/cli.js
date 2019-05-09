@@ -167,7 +167,7 @@ const CLI = class {
       // add MythX Log
       const logs = report.getMythXLogs()
       if (logs && logs.length > 0) {
-        this.reports.contractFile.contractName.logs = logs
+        this.reports[contractFile][contractName].logs = logs
       }
     }
   }
