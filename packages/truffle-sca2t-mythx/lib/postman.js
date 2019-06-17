@@ -74,11 +74,11 @@ const Postman = class {
       }
 
       fs.writeFileSync(path.resolve(this.config.working_directory, 'pm-collection-mythx.json'), JSON.stringify(collection, null, 2))
-      cli.action.stop('done'.green)
-      this.config.logger.log(`please import ${'./pm-collection-mythx.json'.cyan} in Postman`)
-      this.config.logger.log(`Also, you should set ${'ethAddress'.cyan} and ${'password'.cyan} in Postman environment variables`)
+      cli.action.stop('done.'.green)
+      this.config.logger.log(`Please import ${'./pm-collection-mythx.json'.cyan} in Postman.`)
+      this.config.logger.log(`Also, you should set an ${'ethAddress'.cyan} and ${'password'.cyan} in Postman environment variables.`)
     } catch (error) {
-      cli.action.stop('fail'.red)
+      cli.action.stop('fail.'.red)
       throw error
     }
   }
