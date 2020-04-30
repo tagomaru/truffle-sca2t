@@ -15,7 +15,7 @@
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "dependencies": {
-    "jquery": "3.3.1",
+    "jquery": "3.5.0",
     "jsplumb": "2.8.0",
     "solidity-parser-antlr": "^0.4.2"
   },
